@@ -1,0 +1,3 @@
+{"hypothesis_id":"main","evidence":"baseline","conclusion":"baseline finding","ts":"2026-09-25T09:38:13.779964Z"}
+{"hypothesis_id":"lot-quarantine","evidence":"lot 2026-0430-B cluster","conclusion":"quarantine lot","ts":"2026-09-25T09:38:13.774925Z"}
+{"hypothesis_id":"instrument-drift","evidence":"C-7 concentration","conclusion":"inspect calibration","ts":"2026-09-25T09:38:13.777915Z"}

@@ -1,0 +1,25 @@
+SYSTEM 4 — Fork Isolation and Merge Evidence
+
+Base state:
+- current_shift_summary = BASE STATE
+- active_alerts = ["base-alert"]
+- recent_defect_hashes = ["D1"]
+
+Fork creation:
+- lot-quarantine copied the base hot state.
+- instrument-drift copied the base hot state.
+- Both fork states remained identical to the untouched base.
+
+Independent scratchpads:
+- lot-quarantine -> quarantine lot
+- instrument-drift -> inspect calibration
+
+Main scratchpad after merge:
+- main: baseline finding
+- lot-quarantine: quarantine lot
+- instrument-drift: inspect calibration
+
+Interpretation:
+- Each hypothesis has an isolated scratchpad.
+- Fork creation does not mutate the base hot state.
+- Findings from independent forks can be appended to the main scratchpad without rewriting existing findings.

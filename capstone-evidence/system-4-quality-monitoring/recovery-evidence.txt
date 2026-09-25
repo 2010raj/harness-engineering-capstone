@@ -1,0 +1,17 @@
+SYSTEM 4 — Crash Recovery Evidence
+
+Recovery decision results:
+
+recent-incomplete (29 min old) -> resume
+boundary-30m (30 min old) -> resume
+stale-31m (31 min old) -> fresh
+complete manifest -> fresh
+empty manifest -> fresh
+
+Staleness threshold:
+STALE_RESUME_THRESHOLD_MINUTES = 30
+
+Interpretation:
+- An incomplete manifest can resume when its latest step is no more than 30 minutes old.
+- A partial state older than 30 minutes is treated as stale and starts fresh.
+- Completed and empty manifests start fresh.

@@ -1,0 +1,49 @@
+run_id: 20260925-091507  (writing to runs/20260925-091507)
+
+[1/3] loading transcript + computing baseline token count
+      baseline transcript tokens: 38708
+[2/3] extracting case facts (LLM call)
+[3/3] compressing resolved segments (LLM calls)
+      resolved/refund: in=12334 out=396
+      resolved/subscription: in=11475 out=469
+
+      assembled tokens: 16866  (56.43% reduction)
+        case_facts                            204
+        resolved_refund                       409
+        resolved_subscription                 482
+        active                              15789
+
+[eval] running 6 questions against compressed context
+      PASS  Q1  What was the actual refund amount processed for order ORD-77310?
+            answer: According to the case facts, the refund amount processed for order ORD-77310 was **$22.14**.
+
+This refund was initiated 
+      PASS  Q2  Why did the customer cancel their subscription?
+            answer: According to the case facts, the customer cancelled their subscription (SUB-22119) due to a **duplicate charge**.
+
+Speci
+      PASS  Q3  What is the failure code on the current payment-method update?
+            answer: According to the case facts, the payment-method update failure code is **AVS_MISMATCH**.
+
+This was confirmed when the ag
+      PASS  Q4  What is the last-4 of the new card the customer is trying to add?
+            answer: The last-4 of the new card the customer is trying to add is **7782**.
+
+This is a Visa card with an expiration date of Se
+      PASS  Q5  Did the customer receive their subscription proration refund?
+            answer: Yes. According to the case facts, the customer's subscription (SUB-22119) was cancelled with a combined refund of $28.18
+      PASS  Q6  What is the structured status of the payment-method update issue (use the exact status token from the case record, not a paraphrase)?
+            answer: Based on the case facts provided at the beginning of the context, the structured status of the payment-method update iss
+      => 6/6 passed
+
+[eval-control] running case-facts-stripped variant against Q1, Q6
+      PASS  Q1  (UNEXPECTED PASS)
+            answer: Based on the conversation context provided, the actual refund amount processed for order ORD-77310 was **$22.14**.
+
+This
+      FAIL  Q6  (expected FAIL)
+            answer: # Answer
+
+Based on the context provided, there is **no structured status token recorded in the case record** for the pay
+
+done. artifacts in: runs/20260925-091507

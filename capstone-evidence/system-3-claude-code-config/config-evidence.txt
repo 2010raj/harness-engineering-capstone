@@ -1,0 +1,37 @@
+SYSTEM 3 — Claude Code Configuration Evidence
+
+1. Project entry point
+CLAUDE.md
+- Shared project-level Claude Code conventions.
+- Imports shared standards with @.claude/standards/*.md.
+- References path-scoped rules under .claude/rules/.
+
+2. Path-scoped rules
+.claude/rules/react.md
+paths:
+  - "src/components/**/*"
+  - "src/pages/**/*"
+
+.claude/rules/tests.md
+paths:
+  - "**/*.test.tsx"
+  - "**/*.test.ts"
+
+3. Slash command
+.claude/commands/review.md
+- Project-scoped /review command.
+- allowed-tools contains only read-oriented tools and read-only git/gh commands.
+
+4. Forked skill
+.claude/skills/deploy-check/SKILL.md
+context: fork
+- allowed-tools contains read-only tools.
+- Skill returns a structured summary to the main session.
+- Fork keeps verbose discovery output out of the parent session.
+
+5. Verification
+pytest -q
+35 passed
+
+ecommerce-team-config .
+OK
